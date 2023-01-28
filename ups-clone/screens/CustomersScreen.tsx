@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, ScrollView, ActivityIndicator } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useTailwind } from 'tailwind-rn/dist'
 import { CompositeNavigationProp, useNavigation } from '@react-navigation/native'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
@@ -7,7 +7,7 @@ import { TabStackParamList } from '../navigator/TabNavigator'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../navigator/RootNavigator'
 import { Image } from '@rneui/themed/dist/Image'
-
+import { Input } from '@rneui/themed'
 
 
 export type CustomerScreenNavigationProp = CompositeNavigationProp<
@@ -20,6 +20,7 @@ type Props = {}
 const CustomersScreen = (props: Props) => {
     const tw = useTailwind();
     const navigation = useNavigation()
+    const [ input, setInput ] = useState<string>("")
 
     useLayoutEffect(()=>{
       navigation.setOptions({
@@ -35,8 +36,11 @@ const CustomersScreen = (props: Props) => {
       PlaceholderContent={<ActivityIndicator />}
       />
 
+      <Input style={{color: "black"}} placeholder="Search by Customer" value={input} onChangeText={(text)=> {setInput(text)}} containerStyle={tw("bg-white pt-5 pb-0 px-10")} />
+
     </ScrollView>
   )
 }
 
 export default CustomersScreen
+
