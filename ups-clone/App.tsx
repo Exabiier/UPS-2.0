@@ -6,6 +6,7 @@ import CustomersScreen from './screens/CustomersScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './navigator/RootNavigator';
 
+// TODO Need to put all types in there own typescript file so we can import them
 
 export default function App() {
   return (
