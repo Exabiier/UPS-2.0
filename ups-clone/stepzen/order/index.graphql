@@ -9,14 +9,25 @@ type Order {
   Lng: Float
   trackingItems: TrackingItems
     @materializer(
-      name: "getTrackingItemsById"
+      query: "getTrackingItemById"
       arguments:[{name: "id", field: "trackingId"}]
     )
 }
 
+type OrderList {
+  name: ID
+  value: Order
+}
+
 type Query {
-  getOrders: JSON
+  getOrdersById(id: ID): Order
+    @rest(
+      endpoint: "https://ups-2-82d6b-default-rtdb.firebaseio.com/%20%22orders%22/$id.json"
+    )
+
+  getOrders: [OrderList]
     @rest(
       endpoint: "https://ups-2-82d6b-default-rtdb.firebaseio.com/%20%22orders%22.json"
+      transforms: [{pathpattern: [], editor: "objectToArray"}]
     )
 }
