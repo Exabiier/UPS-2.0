@@ -2,11 +2,8 @@ import { useQuery } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import { GET_ORDERS } from '../graphql/queries'
 
-type Prop = {
-    userId: string,
-}
 
-function useCustomerOrders({userId}: Prop) {
+function useCustomerOrders({userId}: any) {
     const { loading, error, data } = useQuery(GET_ORDERS)
     const [orders, setOrders] = useState<Order[]>([])
 
@@ -34,7 +31,7 @@ function useCustomerOrders({userId}: Prop) {
         setOrders
     }, [data, userId])
 
-  return { loading, error, orders }
+  return { loading, error, orders}
   
 }
 
