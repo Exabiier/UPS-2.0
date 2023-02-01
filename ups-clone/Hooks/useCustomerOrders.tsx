@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react'
 import { GET_ORDERS } from '../graphql/queries'
 
 
-function useCustomerOrders({userId}: any) {
+
+function useCustomerOrders(userId: string)  {
     const { loading, error, data } = useQuery(GET_ORDERS)
     const [orders, setOrders] = useState<Order[]>([])
-
+    
     useEffect(()=>{
         if(!data) return;
 
@@ -23,12 +24,12 @@ function useCustomerOrders({userId}: any) {
         }))
 
         const customerOrders = orders.filter(( order : Order)=>{
-            order.trackingItems.customer_id === userId
+            return order.trackingItems.customer_id === userId;
         })
 
         setOrders(customerOrders)
 
-        setOrders
+       
     }, [data, userId])
 
   return { loading, error, orders}

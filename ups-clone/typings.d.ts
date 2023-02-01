@@ -44,9 +44,19 @@ type Order ={
     City: string;
 }
 
+// The Route type for the useRoute() hook
+type ModalScreenRouteProp = RouteProp<RootStackParamList, "MyModal">
+
+
 // for the navigation components for our screen views
 type CustomerScreenNavigationProp = CompositeNavigationProp<
 BottomTabNavigationProp<TabStackParamList, "Customers">,
+NativeStackNavigationProp<RootStackParamList>
+>
+
+// Type for the Modal on phone
+type  ModelScreenNavigationProp = CompositeNavigationProp<
+BottomTabNavigationProp<TabStackParamList, "MyModal">,
 NativeStackNavigationProp<RootStackParamList>
 >
 

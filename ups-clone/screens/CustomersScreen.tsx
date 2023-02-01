@@ -19,7 +19,6 @@ const CustomersScreen = (props: Props) => {
     const navigation = useNavigation()
     const [ input, setInput ] = useState<string>("")
     const { loading, error, data } = useQuery(GET_CUSTOMERS)
-
     useLayoutEffect(()=>{
       navigation.setOptions({
         headerShown: false,

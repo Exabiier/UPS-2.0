@@ -7,7 +7,7 @@ import { Card, Icon } from '@rneui/themed';
 
 
 
-type Prop = {
+type Props = {
     userId: string;
     name: string;
     email: string;
@@ -15,13 +15,19 @@ type Prop = {
 
 
 
-const CustomerCard = ({userId, name, email}: Prop) => {
+const CustomerCard = ({userId, name, email}: Props) => {
+    console.log(typeof(userId))
     const {loading, error, orders } = useCustomerOrders(userId);
     const tw = useTailwind();
     const navigation = useNavigation<CustomerScreenNavigationProp>();
 
   return (
-    <TouchableOpacity>
+
+    <TouchableOpacity onPress={() => navigation.navigate('MyModal', {
+      name: name,
+      userId: userId,
+    })}>
+      
       <Card containerStyle={tw("p-5 rounded-lg")}>
             <View style={tw("flex-row justify-between")}>
                 <View>
