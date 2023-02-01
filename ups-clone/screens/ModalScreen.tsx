@@ -28,16 +28,22 @@ const ModalScreen = () => {
       style={tw("absolute right-5 top-5 z-10")}>
         <Icon name="closecircle" type="antdesign" />
       </TouchableOpacity>
-      <View>
-        <Text>{name}</Text>
-        <Text>{userId}</Text>
+
+      <View style={{ marginTop: 10 }}>
+        <View style={[tw("py-5 border-b"), {borderColor: "#59C1CC"}]}>
+          <Text style={[tw("text-center text-xl font-bold"), { color: "#59C1CC"}]}>{name}</Text>
+          <Text style={tw("text-center italic text-sm")}>Deliveries</Text>
+        </View>
+
       </View>
 
       <FlatList
+      contentContainerStyle={{ paddingBottom: 200}}
       data={orders}
-      keyExtractor={order => order.trackingId}
-      renderItem={({item: order}) => (<DeliveryCard order={orders} />)}
+      keyExtractor={(order: Order) => order.trackingId}
+      renderItem={({item: order}) => (<DeliveryCard order={order} />)}
       />
+
     </View>
   )
 }
