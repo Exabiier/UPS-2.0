@@ -16,7 +16,6 @@ type Props = {
 
 
 const CustomerCard = ({userId, name, email}: Props) => {
-    console.log(typeof(userId))
     const {loading, error, orders } = useCustomerOrders(userId);
     const tw = useTailwind();
     const navigation = useNavigation<CustomerScreenNavigationProp>();

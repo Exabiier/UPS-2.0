@@ -14,10 +14,8 @@ const OrdersScreen = (props: Props) => {
   const tw = useTailwind();
   const navigation = useNavigation<OrdersScreenNavigationProp>();
   const { loading, error, orders } = useOrders();
-
   const [ ascending, setAscending ] = useState<boolean>(false);
-
-
+ 
   useLayoutEffect(()=>{
     navigation.setOptions({
       headerShown: false,
@@ -29,8 +27,6 @@ const OrdersScreen = (props: Props) => {
       ),
     })
   }, [])
-
-
 
   return (
     <ScrollView style={{ backgroundColor: "#EB6A7C"}}>

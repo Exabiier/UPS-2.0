@@ -60,7 +60,7 @@ BottomTabNavigationProp<TabStackParamList, "MyModal">,
 NativeStackNavigationProp<RootStackParamList>
 >
 
-// type for the Order Screen
+// type for the Orders Screen
 type OrdersScreenRouteProp = RouteProp<RootStackParamList, "Orders">;
 
 type OrdersScreenNavigationProp = CompositeNavigationProp<
@@ -72,5 +72,5 @@ NativeStackNavigationProp<RootStackParamList>
 type RootStackParamList = {
     Main: undefined;
     MyModal: {userId: string; name: string}
-    order: {order: any;  }
+    Order: {order: Order  }
 }
