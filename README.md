@@ -1,6 +1,6 @@
 # UPS-2.0
 
-This project Requires Step-zen, tailwind and expo. Once these libaries are installed do the following steps:
+This project Requires Step-Zen, Tailwind CSS and Expo. Once these libaries are installed do the following steps:
 
 1) npm run dev:tailwind
 
